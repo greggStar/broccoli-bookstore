@@ -1,6 +1,9 @@
+from pydoc import resolve
 from urllib import response
 from django.test import SimpleTestCase
-from django.urls import reverse
+from django.urls import reverse, resolve
+
+from .views import HomePageView
 
 class HomepageTests(SimpleTestCase):
 
@@ -22,3 +25,7 @@ class HomepageTests(SimpleTestCase):
 
     def test_homepage_does_not_contain_incorrect_html(self):
         self.assertNotContains(self.response, "cold beans aint hot bro")
+
+    def test_homepage_url_resolves_homepageview(self):
+        view = resolve('/')
+        self.assertEqual(view.func.__name__, HomePageView.as_view().__name__)
