@@ -1,21 +1,17 @@
 {% extends "_base.html" %}
 {% load static %}
 
-{% block title %}Home{% endblock title%}
+{% block title %}About{% endblock title%}
 
 {% block content %}
 <div class="flex flex-col w-full">
     <div class="flex flex-row w-full mb-4 px-2">
         <div class="flex">
-            <h1 class="text-2xl text-slate-700 font-bold">Home page</h1>
+            <h1 class="text-2xl text-slate-700 font-bold">About page</h1>
         </div>
     </div>
     <div class="flex flex-row flex-wrap justify-start items-start content-start">
-        {% for i in '012345678' %}
-        <div class="flex w-1/5 p-2">
-            <img class="bookcover" src="{% static 'pages/images/1984.webp' %}">
-        </div>
-        {% endfor %}
+        
         
         
     </div>

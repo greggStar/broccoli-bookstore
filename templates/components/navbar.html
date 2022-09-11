@@ -1,13 +1,33 @@
-<div class="flex w-full p-2 bg-slate-500 text-gray-50 items-center">
-    <div class="flex w-1/5">LOGO</div>
+<div class="flex w-full p-2 bg-slate-800 text-gray-50 items-center">
+    <div class="flex w-1/5 uppercase font-bold text-xl">Broccoli Books</div>
     <div class="flex w-3/5">
-        <ul>
-            <li>Links</li>
+        <ul class=" list-none inline-flex">
+            <li class="px-2 capitalize">
+                <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="px-2 capitalize">
+                <a href="{% url 'about' %}">About</a>
+            </li>
         </ul>
     </div>
     <div class="flex w-1/5">
-        <ul>
-            <li class="p-2 rounded border-2 bg-blue-200">Login</li>
+        <ul class="flex flex-row items-center">
+            {% if user.is_authenticated %}
+            <li class=" p-2 text-gray-400 font-bold text-sm">
+                <p>Hi {{ user.email }}</p>
+            </li>
+            <li class="p-2 rounded border-2 bg-slate-400 text-gray-800 font-bold">
+                <a href="{% url 'logout' %}">Log Out</a>
+            </li>
+            {% else%}
+            <li class="p-2 rounded border-2 bg-slate-400 text-gray-800 font-bold mr-2">
+                <a href="{% url 'login' %}">Log In</a>
+            </li>
+            <li class="p-2 rounded border-2 bg-slate-400 text-gray-800 font-bold">
+                <a href="{% url 'signup' %}">Signup</a>
+            </li>
+            {% endif%}
+            
         </ul>
     </div>
 </div>
