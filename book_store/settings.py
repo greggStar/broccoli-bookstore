@@ -36,6 +36,10 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = []
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
 
 # Application definition
 
@@ -46,6 +50,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 3rdParty apps
+    'tailwind',
+    'theme',
+    'django_browser_reload',
+    # local apps
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig'
 ]
@@ -58,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'book_store.urls'
@@ -77,6 +87,9 @@ TEMPLATES = [
         },
     },
 ]
+
+TAILWIND_APP_NAME = 'theme'
+TAILWIND_CSS_PATH = 'css/dist/styles.css'
 
 WSGI_APPLICATION = 'book_store.wsgi.application'
 
